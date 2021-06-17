@@ -1,0 +1,38 @@
+{% extends 'landing/base.html' %} {% load crispy_forms_tags %} {%block content%}
+<div class="container">
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-5 col-sm-3 mt-3 mb-1">
+      <div class="card border-0 shadow p-3 mb-5 bg-white rounded">
+        <h5>Add a Post!</h5>
+        <form method="POST">
+           {% csrf_token %} {{form | crispy}}
+          <div class="btn-toolbar d-flex flex-row mt-3">
+            <div class="me-3"><button type="button" class="btn btn-success">Images</button></div>
+            <div class="me-3"><button type="button" class="btn btn-success">Emoji</button></div>
+            <div class="ms-auto"><button class="btn btn-success">Post</button></div>
+            <!--<div class="btn-group" role="group" aria-label="Third group">
+              <button type="button" class="btn btn-success">Post</button>
+            </div>-->
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  {% for post in post_list %}
+  <div class="row justify-content-center mt-2">
+    <div class="col-md-5 col-sm-12 position-relative">
+      <div class="card border-0 shadow-sm p-3 mb-2 bg-white rounded">
+        <p>
+          <strong>{{post.author}}</strong>
+          {{post.created_on}}
+        </p>
+        <p>{{post.body}}</p>
+        <a href="{% url 'post-detail' post.pk%}" class="stretched-link"></a> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+{% endblock content %}
