@@ -1,0 +1,45 @@
+
+
+<div class="card border-0 shadow p-3 mb-5 bg-white rounded" style="width: 18rem;">
+  <ul class="nav flex-column">
+    <li class="nav-item">
+      <img class="card-img-top rounded-circle" src="{{user.profile.profile_pic.url}}" alt="Profile Pic" width="20" height="125">
+    </li>
+    <li class="nav-item">
+      <a href="{%url 'post-list'%}" class="navbar-brand"><i class="fas fa-home me-3"></i>Home</a> 
+    </li>
+    <li class="nav-item">
+      <a href="#" class="navbar-brand"><i class="fab fa-slack-hash me-3"></i>Explore</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="navbar-brand"><i class="fas fa-bell me-3"></i>Notifications</a>
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'profile-edit' user.profile.pk%}" class="navbar-brand"><i class="fas fa-user 
+        me-3"></i>Profile
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="navbar-brand"><i class="fas fa-ellipsis-h me-3"></i>More</a>
+    </li>
+  </ul>
+</div>
+
+<ul class="nav flex-column">
+  <li class="nav-item">
+    <div class="justify-content-center mt-3">
+      <p class="text-center">
+        <a href="#" class="navbar-brand">Settings</a>
+      </p>
+    </div>
+  </li>
+
+  <li class="nav-item">
+    <div class="justify-content-center mt-3">
+      <p class="text-center">
+        <a href="{%url 'account_logout'%}" class="navbar-brand">Logout</a>
+      </p>    
+    </div>
+  </li>
+</ul>
+
