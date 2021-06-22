@@ -20,3 +20,4 @@ ipython_config.py
 #text file
 .txt
 
+!**/__pycache__/
