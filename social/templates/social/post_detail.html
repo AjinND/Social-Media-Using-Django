@@ -14,7 +14,11 @@
   <div class="row justify-content-center mt-3">
     <div class="col-md-5 col-sm-12 border-bottom">
       <p>
-        <strong>{{post.author}}</strong> {{post.created_on}} 
+        <a class="text-decoration-none" href="{% url 'profile' post.author.profile.pk %}">
+          <strong>{{post.author}}</strong>
+        </a>
+        {{post.created_on}}
+          
         {%if request.user == post.author %}
         <a href="{% url 'post-edit' post.pk %}" style="color: #333; margin-left: .3rem;">
           <i class="fas fa-edit"></i>
@@ -25,6 +29,14 @@
         {% endif %}
       </p>
       <p>{{post.body}}</p>
+      <div class="d-flex flex-row">
+        <form method="POST" action="{% url 'post-like' post.pk %}">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{request.path}}">
+          <button type="submit" class="bg-transparent border-0 shadow-none">
+            <i class="far fa-heart"> <span>{{ post.likes.all.count }}</span></i></button>
+        </form>
+      </div>
     </div>
   </div>
 
