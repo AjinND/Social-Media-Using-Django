@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import PostListView, PostDetailView, PostEditView, PostDeleteView, CommentDeleteView, \
-    ProfileView, ProfileEditView, AddFollowers, RemoveFollowers, AddLikes
+    ProfileView, ProfileEditView, AddFollowers, RemoveFollowers, AddLikes, SearchUser
 urlpatterns = [
     path('', PostListView.as_view(), name= 'post-list'),
     path('post/<int:pk>', PostDetailView.as_view(), name= 'post-detail'),
@@ -13,4 +13,5 @@ urlpatterns = [
     path('profile/edit/<int:pk>', ProfileEditView.as_view(), name= 'profile-edit'),
     path('profile/<int:pk>/followers/add', AddFollowers.as_view(), name= 'add-follower'),
     path('profile/<int:pk>/followers/remove', RemoveFollowers.as_view(), name= 'remove-follower'),
+    path('search/', SearchUser.as_view(), name= 'profile-search'),
 ]

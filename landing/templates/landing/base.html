@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +9,7 @@
 
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css'%}"/>
-
+ 
     <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
@@ -15,6 +17,9 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
     <script
       src="https://kit.fontawesome.com/b197115436.js"
       crossorigin="anonymous"

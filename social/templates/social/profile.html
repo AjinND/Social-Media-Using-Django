@@ -71,12 +71,18 @@
   <div class="row justify-content-center mt-5">
     <div class="col-md-8 col-sm-12">
       <div class="card border-0 shadow-sm p-3 mb-2 bg-white rounded">
-          <p>
+          <div>
             <a class="text-decoration-none" href="{% url 'profile' post.author.profile.pk %}">
-              <strong>{{post.author}}</strong>
+              <img class="card-img-top rounded-circle me-1" style="width: 7%;float: left;" 
+                height="25" src="{{ post.author.profile.profile_pic.url }}" alt="Profile Pic"/>
             </a>
-            {{post.created_on}}
-          </p>
+            <p>
+              <a class="text-decoration-none" href="{% url 'profile' profile.pk %}">
+                <strong> @{{profile.user}}</strong>
+              </a>
+              {{post.created_on}}
+            </p>
+          </div>
           <div class="position-relative">
             <p>{{post.body}}</p>
             <a href="{% url 'post-detail' post.pk%}" class="stretched-link"></a> 

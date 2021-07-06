@@ -23,7 +23,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-        <form class="d-flex">
+        <form class="d-flex" method="GET" action="{% url 'profile-search' %}">
           <div class="input-group">
             <span class="input-group-text" id="basic-addon1">@</span>
             <input
@@ -32,9 +32,12 @@
               placeholder="Username"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              name="query"
+              value="{{ request.GET.query }}"
             />
           </div>
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="bg-transparent border-0 shadow-none" type="submit"><i class="fas fa-search"></i>
+          </button>
         </form>
         {% if user.is_authenticated %}
         <div class="nav-item dropdown">
